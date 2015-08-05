@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+        >
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="favicon.ico"/>
+
+    <title>Spring XMPP</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="resources/main/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="alert alert-danger" th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div class="alert alert-info" th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form class="form-signin" th:action="@{/login}" method="post">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="username" class="sr-only">Username</label>
+    <input type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me"/> Remember me
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+</body>
+</html>
